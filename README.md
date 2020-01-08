@@ -1,17 +1,17 @@
-# adsms
-···ADS项目可视化软件系统
+# ADS项目可视化软件系统
 
-#系统架构
+# 系统架构
 Flask + MongoDB + Vue.js
 
-#希望大家在安装编程语言环境的时候，不要直接安装，而是采用版本管理工具进行安装，例如
+希望大家在安装编程语言环境的时候，不要直接安装，而是采用版本管理工具进行安装，例如
 
 pipenv(python)
 nvm(nodejs)
 jenv(java)
 phpenv(php)
 ...
-#后端参考资料
+
+# 后端参考资料
 Flask
 Flask-Login
 Flask-Script
@@ -19,7 +19,7 @@ Flask-Blueprints
 Flask-MongoEngine
 MongoEngine
 
-#前端参考资料
+# 前端参考资料
 Vue
 Vuex
 Vue-Router
@@ -31,8 +31,8 @@ Webpack
 Scss
 PostCSS
 
-#后端
-#环境搭建
+# 后端
+# 环境搭建
 #安装启动MongoDB, 可选项：
 #本机安装MongoDB并启动
 #安装 Docker， 进入项目目录执行 docker-compose up -d 即可
@@ -54,7 +54,7 @@ python run.py
 FLASK_APP=app flask run
 #本地安装的MongoDB需要修改配置文件，以链接本地的MongoDB，配置文件位置src/backend/app/config.py
 
-#项目目录结构
+# 项目目录结构
 - backend
   - app/            # flask app 模块
   - auth/           # 访问控制代码
@@ -64,8 +64,9 @@ FLASK_APP=app flask run
     - account.py        # 用户管理相关API
     - deivce.py         # 设备管理相关API
   - run.py          # 程序入口
-#前端
-#环境搭建
+  
+# 前端
+# 环境搭建
 #安装 nvm 参考
 #能用命令行在任意目录运行 nvm 命令，表示安装成功
 
@@ -81,7 +82,7 @@ yarn
 yarn run serve
 #然后浏览器访问 http://localhost:8080/#/
 
-#目录结构
+# 目录结构
 - frontend
   - public/         # 静态文件
   - src/            # js 代码
@@ -94,11 +95,12 @@ yarn run serve
     - utils/          # 工具方法目录
     - App.vue         # root vue
     - main.js         # 程序入口
-#测试及部署
-#生产环境部署
-#上传代码
+
+# 测试及部署
+# 生产环境部署
+# 上传代码
 scp -r adsms root@ip:/root
-#安装docker
+# 安装docker
 yum update
 yum install -y yum-utils device-mapper-persistent-data lvm2
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
@@ -115,14 +117,14 @@ sudo tee /etc/docker/daemon.json <<-'EOF'
 EOF
 systemctl daemon-reload
 systemctl restart docker
-构建项目
+# 构建项目
 cd adsmin
 ./build.sh
 docker-compose build
 docker-compose up -d
 
 docker-compose up -d --build # 一步到位，等价于上面两条命令
-执行初始化脚本
+# 执行初始化脚本
 docker exec -it backend bash
 flask shell
 
@@ -140,7 +142,8 @@ user.save()
 
 if Setting.objects().first() is None:
     Setting(update_user=user.id).save()
-运行维护
+
+# 运行维护
 # 查看运行日志
 docker-compose logs -f # 查看所有运行日志
 docker-compose logs -f backend # 查看Backend运行日志
